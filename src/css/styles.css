@@ -74,6 +74,7 @@ body {
 .gallery-image {
   width: 360px;
   height: 200px;
+  object-fit: cover;
 }
 
 p {

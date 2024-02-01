@@ -33,28 +33,28 @@ form.addEventListener("submit", async (event) => {
 
             if (data && data.hits && data.hits.length > 0) {
                 const markup = data.hits.map(data => {
-                  return `<li class="gallery-item"><a href="${data.webformatURL}">
-                  <img class="gallery-image" src="${data.webformatURL}" alt="${data.tags}"></a>
-                  <p>Likes: ${data.likes}</p>
-                  <p>Views: ${data.views}</p>
-                  <p>Comments: ${data.comments}</p>
-                  <p>Downloads: ${data.downloads}</p>
-                  </li>`;
+                    return `<li class="gallery-item"><a href="${data.webformatURL}">
+                    <img class="gallery-image" src="${data.webformatURL}" alt="${data.tags}"></a>
+                    <p>Likes: ${data.likes}</p>
+                    <p>Views: ${data.views}</p>
+                    <p>Comments: ${data.comments}</p>
+                    <p>Downloads: ${data.downloads}</p>
+                    </li>`;
                 })
                 .join('');
-              gallery.insertAdjacentHTML('afterbegin', markup);
+                gallery.insertAdjacentHTML('afterbegin', markup);
 
-              const lightbox = new SimpleLightbox('.gallery a', {
+                const lightbox = new SimpleLightbox('.gallery a', {
                 captions: true,
                 captionSelector: 'img',
                 captionsData: 'alt',
                 captionPosition: 'bottom',
                 animation: 250,
-              });
+                });
 
-              lightbox.on('show.simplelightbox');
-              lightbox.refresh();
-              form.reset();
+                lightbox.on('show.simplelightbox');
+                lightbox.refresh();
+                form.reset();
             } else {
                 iziToast.error({
                     message: 'Sorry, there are no images matching your search query. Please try again!',
