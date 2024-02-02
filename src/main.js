@@ -11,9 +11,10 @@ const key = '42111796-9c286351ad531542ab3bfb8be';
 
 loader.style.display = 'none';
 
-form.addEventListener("submit", async (event) => {
+form.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    gallery.innerHTML = '';
     loader.style.display = 'block';
 
     searchImages(input.value);
@@ -69,6 +70,10 @@ form.addEventListener("submit", async (event) => {
         })
         .catch(error => {
             console.error('An error occurred:', error);
+            iziToast.error({
+                title: 'Error',
+                message: `An error occurred: ${error}`,
+            });
         });
     }
 });
